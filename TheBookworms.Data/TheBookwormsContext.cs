@@ -43,13 +43,13 @@ namespace TheBookworms.Data
         {
             modelBuilder.Entity<Book>()
                 .HasKey(b => b.Id)
-                .HasRequired(b => b.CoverImage)
-                .WithRequiredPrincipal(ci => ci.Book);
+                .HasOptional(b => b.CoverImage)
+                .WithOptionalPrincipal(ci => ci.Book);
 
             modelBuilder.Entity<User>()
                 .HasKey(u => u.Id)
-                .HasRequired(u => u.Image)
-                .WithRequiredPrincipal(ci => ci.User);
+                .HasOptional(u => u.Image)
+                .WithOptionalPrincipal(ci => ci.User);
 
             base.OnModelCreating(modelBuilder);
         }
