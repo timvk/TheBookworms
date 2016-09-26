@@ -13,6 +13,7 @@
         private ICollection<UserUpdate> updates;
         private ICollection<Rating> ratings;
         private ICollection<Review> reviews;
+        private ICollection<Comment> comments;
 
         public User()
         {
@@ -20,6 +21,7 @@
             this.updates = new HashSet<UserUpdate>();
             this.ratings = new HashSet<Rating>();
             this.reviews = new HashSet<Review>();
+            this.comments = new HashSet<Comment>();
         }
         public int Age { get; set; }
 
@@ -53,6 +55,11 @@
             set { this.reviews = value; }
         }
 
+        public virtual ICollection<Comment> Comments
+        {
+            get { return this.comments; }
+            set { this.comments = value; }
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager, string authenticationType)
         {

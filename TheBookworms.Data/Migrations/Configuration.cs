@@ -38,6 +38,35 @@ namespace TheBookworms.Data.Migrations
                 };
 
                 userManager.Create(user1, "kokobe");
+
+                userManager = new UserManager<User>(new UserStore<User>(context));
+
+                var user2 = new User()
+                {
+                    UserName = "pacobe",
+                    Email = "paco@paco.be",
+                    Age = 25,
+                    About = "don't panic"
+                };
+
+                userManager.Create(user2, "pacobe");
+
+                userManager = new UserManager<User>(new UserStore<User>(context));
+
+                var user3 = new User()
+                {
+                    UserName = "bobobe",
+                    Email = "bobo@bobo.be",
+                    Age = 25,
+                    About = "playaaah"
+                };
+
+                userManager.Create(user3, "bobobe");
+            }
+
+            if (!context.Authors.Any())
+            {
+                
             }
         }
     }
