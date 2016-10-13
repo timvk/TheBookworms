@@ -27,9 +27,9 @@
 
         public string About { get; set; }
 
-        public int ImageId { get; set; }
+        public int? CoverImageId { get; set; }
 
-        public virtual CoverImage Image { get; set; }
+        public virtual CoverImage CoverImage { get; set; }
 
         public virtual ICollection<Book> Books
         {

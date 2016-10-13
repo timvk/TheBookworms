@@ -34,7 +34,7 @@
 
         public string  Description { get; set; }
 
-        public int CoverImageId { get; set; }
+        public int? CoverImageId { get; set; }
 
         public virtual CoverImage CoverImage { get; set; }
 

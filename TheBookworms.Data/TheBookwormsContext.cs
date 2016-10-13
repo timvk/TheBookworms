@@ -48,7 +48,7 @@ namespace TheBookworms.Data
 
             modelBuilder.Entity<User>()
                 .HasKey(u => u.Id)
-                .HasOptional(u => u.Image)
+                .HasOptional(u => u.CoverImage)
                 .WithOptionalPrincipal(ci => ci.User);
 
             base.OnModelCreating(modelBuilder);
