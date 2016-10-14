@@ -1,5 +1,6 @@
 namespace TheBookworms.Data.Migrations
 {
+    using System;
     using System.Data.Entity.Migrations;
     using System.Linq;
     using Microsoft.AspNet.Identity;
@@ -229,12 +230,18 @@ namespace TheBookworms.Data.Migrations
                     Description = "The apocalypse is here",
                     Status = context.Statuses.FirstOrDefault(s => s.Text == "none"),
                     CoverImageId = context.CoverImages.FirstOrDefault(c => c.Url == "https://upload.wikimedia.org/wikipedia/en/8/8d/The_Stand_Uncut.jpg").Id,
+                    PagesCount = 1000,
+                    DateAdded = DateTime.Now,
+                    DatePublished = new DateTime(1985, 10, 5),
+                    Publisher = "some publisher"
                 };
 
                 book1.Authors.Add(context.Authors.FirstOrDefault(a => a.Name == "Steven King"));
                 book1.Characters.Add(context.Characters.FirstOrDefault(ch => ch.Name == "Randall Flag"));
                 book1.Genres.Add(context.Genres.FirstOrDefault(g => g.Text == "horror"));
                 book1.Genres.Add(context.Genres.FirstOrDefault(g => g.Text == "fantasy"));
+                book1.Ratings.Add(new Rating() { Value = 5});
+                book1.Ratings.Add(new Rating() { Value = 4});
 
                 context.Books.Add(book1);
 
@@ -244,12 +251,17 @@ namespace TheBookworms.Data.Migrations
                     Description = "DRAGON!",
                     Status = context.Statuses.FirstOrDefault(s => s.Text == "none"),
                     CoverImageId = context.CoverImages.FirstOrDefault(c => c.Url == "http://d.gr-assets.com/books/1431127356l/64216.jpg").Id,
+                    PagesCount = 400,
+                    DateAdded = DateTime.Now,
+                    DatePublished = new DateTime(1990, 7, 5),
+                    Publisher = "some other publisher"
                 };
 
                 book2.Authors.Add(context.Authors.FirstOrDefault(a => a.Name == "Terry Pratchett"));
                 book2.Characters.Add(context.Characters.FirstOrDefault(ch => ch.Name == "Sam Vimes"));
                 book2.Genres.Add(context.Genres.FirstOrDefault(g => g.Text == "humour"));
                 book2.Genres.Add(context.Genres.FirstOrDefault(g => g.Text == "fantasy"));
+                book2.Ratings.Add(new Rating() { Value = 5 });
 
                 context.Books.Add(book2);
 
@@ -259,11 +271,16 @@ namespace TheBookworms.Data.Migrations
                     Description = "DRAGONS AND SWORDS!",
                     Status = context.Statuses.FirstOrDefault(s => s.Text == "none"),
                     CoverImageId = context.CoverImages.FirstOrDefault(c => c.Url == "http://vignette1.wikia.nocookie.net/iceandfire/images/b/b6/Game_of_thrones.jpeg").Id,
+                    PagesCount = 650,
+                    DateAdded = DateTime.Now,
+                    DatePublished = new DateTime(1992, 2, 7),
+                    Publisher = "another publisher"
                 };
 
                 book3.Authors.Add(context.Authors.FirstOrDefault(a => a.Name == "George R.R. Martin"));
                 book3.Characters.Add(context.Characters.FirstOrDefault(ch => ch.Name == "Jon Snow"));
                 book3.Genres.Add(context.Genres.FirstOrDefault(g => g.Text == "fantasy"));
+                book3.Ratings.Add(new Rating() { Value = 4 });
 
                 context.Books.Add(book3);
 

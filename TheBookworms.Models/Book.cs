@@ -1,7 +1,7 @@
 ﻿namespace TheBookworms.Models
 {
+    using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
 
     public class Book
     {
@@ -33,6 +33,14 @@
         }
 
         public string  Description { get; set; }
+
+        public int PagesCount { get; set; }
+
+        public string Publisher { get; set; }
+
+        public DateTime DatePublished { get; set; }
+
+        public DateTime DateAdded { get; set; }
 
         public int? CoverImageId { get; set; }
 
