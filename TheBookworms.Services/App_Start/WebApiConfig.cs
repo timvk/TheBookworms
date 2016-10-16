@@ -9,11 +9,16 @@ using Newtonsoft.Json.Serialization;
 namespace TheBookworms.Services
 {
     using System.Net.Http.Headers;
+    using System.Web.Http.Cors;
 
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
+            //enable cross-origin requestrs
+            var corsAttr = new EnableCorsAttribute("http://localhost:3000", "*", "*");
+            config.EnableCors(corsAttr);
+
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();

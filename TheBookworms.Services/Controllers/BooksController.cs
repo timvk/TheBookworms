@@ -3,11 +3,9 @@
     using System.Linq;
     using System.Web.Http;
     using Models;
-    using TheBookworms.Models;
 
     public class BooksController : BaseApiController
     {
-        //GET api/books
         [HttpGet]
         [Route("api/books")]
         public IHttpActionResult GetAllBooks()
@@ -32,5 +30,10 @@
 
             return this.Ok(book);
         }
+
+//        public IHttpActionResult AddBook()
+//        {
+//            
+//        }
     }
 }
